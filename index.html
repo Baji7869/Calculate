@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Marks Calculation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 20px;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="number"] {
+            width: 100px;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            margin: auto;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        p {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Marks Calculation</h1>
+        <label for="classTest1">Enter marks for class test 1 (out of 10):</label>
+        <input type="number" id="classTest1" step="0.01"><br><br>
+
+        <label for="classTest2">Enter marks for class test 2 (out of 10):</label>
+        <input type="number" id="classTest2" step="0.01"><br><br>
+
+        <label for="midTest1">Enter marks for mid test 1 (out of 15):</label>
+        <input type="number" id="midTest1" step="0.01"><br><br>
+
+        <label for="midTest2">Enter marks for mid test 2 (out of 15):</label>
+        <input type="number" id="midTest2" step="0.01"><br><br>
+
+        <button onclick="calculateResults()">Calculate</button>
+
+        <h2>Results</h2>
+        <p id="classTestResult">Class Test Result: </p>
+        <p id="midTestResult">Mid Test Result: </p>
+        <p id="totalResult">Total Result: </p>
+    </div>
+
+    <script>
+        function calculateResults() {
+            const classTest1 = parseFloat(document.getElementById('classTest1').value);
+            const classTest2 = parseFloat(document.getElementById('classTest2').value);
+            const midTest1 = parseFloat(document.getElementById('midTest1').value);
+            const midTest2 = parseFloat(document.getElementById('midTest2').value);
+
+            const classTestResult = calculateClassTestResult(classTest1, classTest2);
+            const midTestResult = calculateMidTestResult(midTest1, midTest2);
+            const totalResult = classTestResult + midTestResult;
+
+            document.getElementById('classTestResult').innerText = `Class Test Result: ${classTestResult.toFixed(2)}`;
+            document.getElementById('midTestResult').innerText = `Mid Test Result: ${midTestResult.toFixed(2)}`;
+            document.getElementById('totalResult').innerText = `Total Result: ${totalResult.toFixed(2)}`;
+        }
+
+        function calculateClassTestResult(test1, test2) {
+            const maxTest = Math.max(test1, test2);
+            const minTest = Math.min(test1, test2);
+
+            const resultMax = (maxTest * 2.0) / 3.0;
+            const resultMin = minTest / 3.0;
+
+            return resultMax + resultMin;
+        }
+
+        function calculateMidTestResult(test1, test2) {
+            const maxTest = Math.max(test1, test2);
+            const minTest = Math.min(test1, test2);
+
+            const resultMax = (maxTest * 2.0) / 3.0;
+            const resultMin = minTest / 3.0;
+
+            return resultMax + resultMin;
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page title</title>
+</head>
+<body>
+    
+</body>
+</html>
